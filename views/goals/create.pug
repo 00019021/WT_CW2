@@ -1,0 +1,68 @@
+extends ../layout
+
+block content
+  .container
+    h1 Create New Goal
+    
+    //- Display validation errors if any
+    if errors && errors.length
+      .errors
+        each error in errors
+          p.error= error.msg
+    
+    form(action="/goals" method="POST")
+      .form-group
+        label(for="goalName") Goal Name*
+        input#goalName(
+          type="text"
+          name="goalName"
+          required
+          minlength="4"
+          value=goal ? goal.goalName : ''
+          placeholder=""
+        )
+        .form-description Must be at least 4 characters long
+      
+      .form-group
+        label(for="target") Target Value*
+        input#target(
+          type="number"
+          name="target"
+          required
+          step="any"
+          min="0"
+          value=goal ? goal.target : ''
+          placeholder=""
+        )
+      
+      .form-group
+        label(for="currentStatus") Current Value
+        input#currentStatus(
+          type="number"
+          name="currentStatus"
+          step="any"
+          min="0"
+          value=goal ? goal.currentStatus : '0'
+          placeholder="Your current status"
+        )
+      
+      .form-group
+        label(for="dueDate") Due Date*
+        input#dueDate(
+          type="date"
+          name="dueDate"
+          required
+          value=goal ? goal.dueDate : ''
+        )
+      
+      .form-group
+        label(for="description") Description
+        textarea#description(
+          name="description"
+          rows="5"
+          placeholder="Enter additional details or notes about this goal"
+        )= goal ? goal.description : ''
+      
+      .button-group
+        button.button(type="submit") Create Goal
+        a.button.secondary(href="/goals") Cancel 
