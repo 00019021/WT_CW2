@@ -2,12 +2,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
 const path = require("path");
-const connectDB = require("./config/database");
 
 const app = express();
-
-// Connect to MongoDB
-connectDB();
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
