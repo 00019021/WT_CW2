@@ -432,12 +432,20 @@ textarea {
 }
 
 /* Footer */
-footer {
-  background-color: var(--dark);
-  color: var(--white);
-  text-align: center;
+.footer {
+  background-color: var(--white);
   padding: 1.5rem 0;
-  margin-top: 3rem;
+  text-align: center;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: auto;
+}
+
+.footer p {
+  color: var(--secondary-color);
+  font-size: 0.9rem;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.5;
 }
 
 /* Error messages */
