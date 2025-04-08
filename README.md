@@ -22,7 +22,7 @@ A web application for tracking fitness goals and monitoring progress. Built with
 
 ```
 git clone https://github.com/00019021/WT_CW2.git
-cd WT_CW2-master
+cd WT_CW2
 
 ```
 
@@ -38,7 +38,7 @@ Will install node_modules
 3. Start the server:
 
 ```
-npm start
+npm run start
 
 ```
 
@@ -50,3 +50,11 @@ To run the application in development mode with auto-reload:
 npm run dev
 
 ```
+
+Web application link:
+
+https://fortune-ink-primrose.glitch.me/
+
+GitHub repository link:
+
+https://github.com/00019021/WT_CW2.git
