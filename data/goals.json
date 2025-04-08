@@ -1,0 +1,67 @@
+{
+  "goals": [
+    {
+      "id": 1,
+      "goalName": "Gain muscle",
+      "goalType": "weight",
+      "target": 74,
+      "currentStatus": 60,
+      "progress": 81,
+      "createdAt": "2025-04-06T00:00:43.238Z",
+      "dueDate": "2025-06-17"
+    },
+    {
+      "id": 2,
+      "goalName": "Grow in height",
+      "goalType": "height",
+      "target": 184,
+      "currentStatus": 184,
+      "progress": 100,
+      "createdAt": "2025-04-06T00:01:19.206Z",
+      "dueDate": "2026-01-01",
+      "priority": "medium",
+      "description": "",
+      "lastUpdated": "2025-04-07T05:39:46.008Z"
+    },
+    {
+      "id": 3,
+      "goalName": "Run 10km everyday",
+      "goalType": "distance",
+      "target": 10,
+      "currentStatus": 7.5,
+      "progress": 75,
+      "createdAt": "2025-04-06T00:03:27.247Z",
+      "dueDate": "2025-07-01",
+      "priority": "medium",
+      "description": "",
+      "lastUpdated": "2025-04-07T05:38:59.599Z"
+    },
+    {
+      "id": 4,
+      "goalName": "Hold air more than 3minutes under the water",
+      "goalType": "time",
+      "target": 3,
+      "currentStatus": 1,
+      "progress": 33,
+      "createdAt": "2025-04-07T02:46:04.082Z",
+      "dueDate": "20025-01-06",
+      "description": "alkjdfla;jkf",
+      "priority": "medium",
+      "lastUpdated": "2025-04-07T02:46:04.082Z"
+    },
+    {
+      "id": 5,
+      "goalName": "Do more than 4 sets in push ups",
+      "goalType": "repetitions",
+      "target": 6,
+      "currentStatus": 2,
+      "progress": 33,
+      "createdAt": "2025-04-07T02:49:27.120Z",
+      "dueDate": "2025-05-07",
+      "description": "need more ",
+      "priority": "medium",
+      "lastUpdated": "2025-04-07T02:49:27.120Z"
+    }
+  ],
+  "nextId": 6
+}

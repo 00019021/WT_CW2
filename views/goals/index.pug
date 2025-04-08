@@ -1,0 +1,93 @@
+extends ../layout
+
+block content
+  .container
+    .header
+      h1 Your Fitness Goals
+      a.button(href="/goals/create")
+        i.fas.fa-plus
+        |  Create New Goal
+    
+    if goals.length === 0
+      p.no-goals You haven't created any goals yet. 
+        a(href="/goals/create") Create your first goal!
+    
+    else
+      .goals-grid
+        each goal in goals
+          .goal-card(data-progress=goal.progress, data-created-at=goal.createdAt, data-due-date=goal.dueDate)
+            .goal-header
+              h2
+                | #{goal.goalName}
+            
+            .goal-details
+              p
+                i.fas.fa-bullseye
+                | Target: #{goal.target}
+              p
+                i.fas.fa-chart-line
+                | Current: #{goal.currentStatus}
+              p
+                i.fas.fa-calendar-day
+                | Due: #{new Date(goal.dueDate).toLocaleDateString()}
+              if goal.progress === 100
+                p
+                  i.fas.fa-check-circle
+                  | Status: Completed
+              else
+                p
+                  i.fas.fa-spinner
+                  | Status: In Progress
+            
+            .progress-container
+              .circular-progress(data-progress=goal.progress)
+                svg.progress-ring(width="80" height="80")
+                  circle.progress-ring-circle(
+                    stroke-width="8"
+                    stroke="var(--primary-color)"
+                    cx="40"
+                    cy="40"
+                    r="34"
+                    fill="transparent"
+                  )
+                .progress-text #{goal.progress}%
+              
+              .progress-details
+                p
+                  i.fas.fa-bullseye
+                  | Target: #{goal.target}
+                p
+                  i.fas.fa-chart-line
+                  | Current: #{goal.currentStatus}
+                p
+                  i.fas.fa-calendar-day
+                  | Due: #{new Date(goal.dueDate).toLocaleDateString()}
+                p
+                  i.fas.fa-calendar-plus
+                  | Created: #{new Date(goal.createdAt).toLocaleDateString()}
+            
+            if goal.description
+              .goal-expandable
+                h3 Description
+                .goal-notes #{goal.description}
+            
+            .goal-actions
+              a.button.edit(href=`/goals/${goal.id}/edit`)
+                i.fas.fa-edit
+                |  Edit
+              form.delete-form(action=`/goals/${goal.id}?_method=DELETE` method="POST")
+                button.button.delete(type="submit")
+                  i.fas.fa-trash
+                  |  Delete
+              if goal.progress < 100
+                form.complete-form(action=`/goals/${goal.id}/complete?_method=PUT` method="POST")
+                  button.button.success(type="submit")
+                    i.fas.fa-check
+                    |  Mark Complete
+              if goal.progress === 100
+                form.undo-form(action=`/goals/${goal.id}/undo?_method=PUT` method="POST")
+                  button.button.primary(type="submit")
+                    i.fas.fa-undo
+                    |  Undo Completion
+              if goal.description
+                button.button.expand-button Show More

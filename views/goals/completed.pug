@@ -1,0 +1,58 @@
+extends ../layout
+
+block content
+  .container
+    .header
+      h1 Completed Goals
+      a.button.secondary(href="/goals") 
+        i.fas.fa-arrow-left
+        |  Back to Goals
+    
+    if goals.length === 0
+      .empty-state
+        i.fas.fa-trophy.large-icon
+        h2.no-goals No Completed Goals Yet
+        p.subtext Complete your fitness goals to see them here.
+        a.button(href="/goals") Return to Goals
+    
+    else
+      .goals-grid
+        each goal in goals
+          .goal-card.completed-card
+            .goal-header
+              h2 #{goal.goalName}
+            
+            .goal-details
+              p
+                i.fas.fa-bullseye
+                | Target: #{goal.target}
+              p
+                i.fas.fa-chart-line
+                | Final Value: #{goal.currentStatus}
+              p
+                i.fas.fa-calendar-check
+                | Completed: #{new Date(goal.updatedAt).toLocaleDateString()}
+              p
+                i.fas.fa-calendar-plus
+                | Created: #{new Date(goal.createdAt).toLocaleDateString()}
+              if goal.dueDate
+                p
+                  i.fas.fa-calendar-day
+                  | Due Date: #{new Date(goal.dueDate).toLocaleDateString()}
+            
+            if goal.description
+              .goal-expandable
+                h3 Description
+                .goal-notes #{goal.description}
+            
+            .goal-actions
+              form.undo-form(action=`/goals/${goal.id}/undo?_method=PUT` method="POST")
+                button.button.primary(type="submit")
+                  i.fas.fa-undo
+                  |  Undo Completion
+              form.delete-form(action=`/goals/${goal.id}?_method=DELETE` method="POST")
+                button.button.delete(type="submit")
+                  i.fas.fa-trash
+                  |  Delete
+              if goal.description
+                button.button.expand-button Show More
