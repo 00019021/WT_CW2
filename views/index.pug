@@ -1,0 +1,65 @@
+//- Home page template
+//- Extends the main layout and populates the content block
+extends layout
+
+block content
+  .container
+    //- Hero section - main headline and call-to-action buttons
+    .hero
+      h1.hero-title= title
+      p.hero-description= description
+      .hero-actions
+        a.button(href="/goals") 
+          i.fas.fa-list
+          |  View Goals
+        a.button.primary(href="/goals/create")
+          i.fas.fa-plus-circle
+          |  Create Goal
+    
+    //- Features section heading
+    h2.section-title
+      i.fas.fa-star
+      |  Features
+    
+    //- Feature cards section highlighting key application capabilities
+    .features
+      //- Feature 1: Goal tracking
+      .feature
+        .feature-icon
+          i.fas.fa-bullseye
+        h2 Track Your Goals
+        p Set specific fitness targets with customizable goals for weight, distance, repetitions, time, and height.
+        ul
+          li Define target values
+          li Set priorities
+          li Track due dates
+      
+      //- Feature 2: Progress monitoring
+      .feature
+        .feature-icon
+          i.fas.fa-chart-line
+        h2 Monitor Progress
+        p Keep track of your progress with visual indicators and milestone tracking.
+        ul
+          li Visual progress rings
+          li Percentage calculations
+          li Progress milestone tracking
+      
+      //- Feature 3: Motivation features
+      .feature
+        .feature-icon
+          i.fas.fa-medal
+        h2 Stay Motivated
+        p Visualize your achievements and maintain consistency with motivational features.
+        ul
+          li Achievement badges
+          li Progress history
+          li Motivational quotes
+    
+    //- Final call-to-action section
+    .cta
+      h2 Ready to achieve your fitness goals?
+      p Start tracking your progress today and transform your fitness journey!
+      a.button(href="/goals/create")
+        i.fas.fa-running
+        |  Get Started Now 

@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  .container
+    h1 Error
+    if error
+      p= error
+    else
+      p An unknown error occurred
+    
+    a.button(href="/") Return to Homepage 

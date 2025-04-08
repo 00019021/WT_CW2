@@ -1,0 +1,41 @@
+//- Main layout template for the application
+//- This serves as the base template that all other templates extend
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    //- Dynamic title with fallback
+    title #{title || 'Fitness Goal Tracker'} - Fitness Goal Tracker
+    //- External CSS for icons and internal stylesheets
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css")
+    link(rel="stylesheet", href="/styles/style.css")
+  body
+    //- Main content wrapper
+    .app-container
+      //- Top navigation bar
+      header
+        .top-nav
+          a.logo(href="/") Fitness Goal Tracker
+          
+          //- Main navigation links
+          .nav-links
+            a(href="/")
+              i.fas.fa-home
+              span Home
+            a(href="/goals")
+              i.fas.fa-bullseye
+              span All Goals
+            a(href="/goals/create")
+              i.fas.fa-plus-circle
+              span Create Goal
+            a(href="/goals/completed")
+              i.fas.fa-check-circle
+              span Completed
+      
+      //- Content area - will be replaced with content from child templates
+      main.main-content
+        block content
+    
+    //- JavaScript for interactive functionality
+    script(src="/javascripts/main.js") 
